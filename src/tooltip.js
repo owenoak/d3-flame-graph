@@ -27,6 +27,8 @@ export function defaultFlamegraphTooltip () {
             .style('opacity', 0)
             .style('pointer-events', 'none')
             .attr('class', 'd3-flame-graph-tip')
+        window.d3tip = tooltip
+        console.warn({ tooltip })
     }
 
     tip.show = function (event, d) {
@@ -49,12 +51,12 @@ export function defaultFlamegraphTooltip () {
     }
 
     tip.hide = function () {
-        tooltip
-            .style('display', 'none')
-            .transition()
-            .duration(200)
-            .style('opacity', 0)
-            .style('pointer-events', 'none')
+        // tooltip
+        //     .style('display', 'none')
+        //     .transition()
+        //     .duration(200)
+        //     .style('opacity', 0)
+        //     .style('pointer-events', 'none')
 
         return tip
     }
