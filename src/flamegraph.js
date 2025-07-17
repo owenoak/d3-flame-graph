@@ -349,8 +349,8 @@ export default function () {
             g.exit()
                 .remove()
 
-            g.on('mouseover', function (_, d) {
-                if (tooltip) tooltip.show(d, this)
+            g.on('mouseover', function (event, d) {
+                if (tooltip) tooltip.show(event, d, this)
                 detailsHandler(labelHandler(d))
                 if (typeof hoverHandler === 'function') {
                     hoverHandler(d)
