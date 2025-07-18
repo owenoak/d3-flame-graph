@@ -10,7 +10,7 @@ function defaultLabel (d) {
 }
 
 export function defaultFlamegraphTooltip (rootHTMLElement) {
-    rootElement = rootHTMLElement ? select(rootHTMLElement) : select('body')
+    var rootElement = rootHTMLElement ? select(rootHTMLElement) : select('body')
     console.info("creating defaultFlamegraphTooltip", rootElement)
     var tooltip = null
     // Function to get HTML content from data.
