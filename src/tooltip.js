@@ -35,9 +35,22 @@ export function defaultFlamegraphTooltip (rootHTMLElement) {
     }
     tip.rootElement = rootElement
 
+    tip.move = function(x,y) {
+        tooltip
+            .style('display', 'block')
+            .style('opacity', 1)
+            .style('left', x + 'px')
+            .style('top', y + 5 + 'px')
+            .style('pointer-events', 'all')
+    }
+    
     tip.show = function (event, d) {
         window._event = event
-        console.info("d3.pointer(): root", pointer(event, rootElement))
+        const rootBox = rootElement.node().getBoundingClientRect()
+        const { x: rootX, y: rootY } = rootBox
+        const p1 = pointer(event, rootElement)
+        const p2 = pointer(event, rootElement.node())
+        console.info("show", { rootBox, p1, p2 })
         tooltip
             .style('display', 'block')
             .style('left', event.pageX + 5 + 'px')
