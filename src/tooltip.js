@@ -1,6 +1,6 @@
 /* global event */
 
-import { select } from 'd3-selection'
+import { select, pointer } from 'd3-selection'
 import 'd3-transition'
 import 'd3-dispatch'
 import 'd3-ease'
@@ -29,10 +29,15 @@ export function defaultFlamegraphTooltip (rootHTMLElement) {
             .style('pointer-events', 'none')
             .attr('class', 'd3-flame-graph-tip')
         console.info("initialized tooltip", {tip, rootElement, tooltip })
+        window.r = rootElement
+        window.t = tooltip
+        window.tip = tip
     }
     tip.rootElement = rootElement
 
     tip.show = function (event, d) {
+        window._event = event
+        console.info("d3.pointer(): root", pointer(event, rootElement)
         tooltip
             .style('display', 'block')
             .style('left', event.pageX + 5 + 'px')
