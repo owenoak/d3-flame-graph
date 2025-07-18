@@ -21,16 +21,16 @@ export function defaultFlamegraphTooltip (rootHTMLElement) {
     var contentIsHTML = false
 
     function tip () {
-        console.info("initializing tooltip", rootElement)
-        tooltip = rootElement
+        tooltip = tip.tooltip = rootElement
             .append('div')
             .style('display', 'none')
             .style('position', 'absolute')
             .style('opacity', 0)
             .style('pointer-events', 'none')
             .attr('class', 'd3-flame-graph-tip')
-        console.info("initialized tooltip", tooltip)
+        console.info("initialized tooltip", {tip, rootElement, tooltip })
     }
+    tip.rootElement = rootElement
 
     tip.show = function (event, d) {
         tooltip
