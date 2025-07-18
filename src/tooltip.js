@@ -9,8 +9,8 @@ function defaultLabel (d) {
     return d.data.name
 }
 
-export function defaultFlamegraphTooltip () {
-    var rootElement = select('body')
+export function defaultFlamegraphTooltip (rootElement = select('body')) {
+    console.info("creating defaultFlamegraphTooltip", rootElement)
     var tooltip = null
     // Function to get HTML content from data.
     var html = defaultLabel
@@ -20,6 +20,7 @@ export function defaultFlamegraphTooltip () {
     var contentIsHTML = false
 
     function tip () {
+        console.info("initializing tooltip", rootElement)
         tooltip = rootElement
             .append('div')
             .style('display', 'none')
@@ -27,8 +28,7 @@ export function defaultFlamegraphTooltip () {
             .style('opacity', 0)
             .style('pointer-events', 'none')
             .attr('class', 'd3-flame-graph-tip')
-        window.d3tip = tooltip
-        console.warn({ tooltip })
+        console.info("initialized tooltip", tooltip)
     }
 
     tip.show = function (event, d) {
