@@ -51,12 +51,12 @@ export function defaultFlamegraphTooltip (rootElement = select('body')) {
     }
 
     tip.hide = function () {
-        // tooltip
-        //     .style('display', 'none')
-        //     .transition()
-        //     .duration(200)
-        //     .style('opacity', 0)
-        //     .style('pointer-events', 'none')
+        tooltip
+            .style('display', 'none')
+            .transition()
+            .duration(200)
+            .style('opacity', 0)
+            .style('pointer-events', 'none')
 
         return tip
     }
