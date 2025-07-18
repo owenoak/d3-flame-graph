@@ -53,8 +53,10 @@ export function defaultFlamegraphTooltip (rootHTMLElement) {
         console.info("show", { rootBox, p1, p2 })
         tooltip
             .style('display', 'block')
-            .style('left', event.pageX + 5 + 'px')
-            .style('top', event.pageY + 5 + 'px')
+            .style('left', p2[0] + 'px')
+            .style('top', p2[1] + 'px')
+            // .style('left', event.pageX + 5 + 'px')
+            // .style('top', event.pageY + 5 + 'px')
             .transition()
             .duration(200)
             .style('opacity', 1)
