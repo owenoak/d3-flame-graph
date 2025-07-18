@@ -37,7 +37,7 @@ export function defaultFlamegraphTooltip (rootHTMLElement) {
 
     tip.show = function (event, d) {
         window._event = event
-        console.info("d3.pointer(): root", pointer(event, rootElement)
+        console.info("d3.pointer(): root", pointer(event, rootElement))
         tooltip
             .style('display', 'block')
             .style('left', event.pageX + 5 + 'px')
